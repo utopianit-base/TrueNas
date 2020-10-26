@@ -27,7 +27,7 @@ function New-TrueNasZvol
 
         [Parameter (Mandatory = $False)]
         [ValidateSet("OFF", "LZ4", "GZIP", "GZIP-1", "GZIP-9", "ZLE", "LZJB")]
-        [String]$Compression = "lz4",
+        [String]$Compression = "LZ4",
 
         [Parameter (Mandatory = $False)]
         [bool]$Sparse,
