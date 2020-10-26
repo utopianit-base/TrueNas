@@ -96,7 +96,7 @@ function New-TrueNasZvol
         }
         if ( $PsBoundParameters.ContainsKey('BlokSize') )
         {
-            $Zvolc | add-member -name "blocksize" -membertype NoteProperty -Value $BlokSize
+            $Zvolc | add-member -name "volblocksize" -membertype NoteProperty -Value $BlokSize
         }
 
         $response = Invoke-TrueNasRestMethod -method Post -body $Zvolc -Uri $Uri
