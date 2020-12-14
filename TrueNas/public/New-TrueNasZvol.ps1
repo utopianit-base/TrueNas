@@ -37,7 +37,7 @@ function New-TrueNasZvol
 
         [Parameter (Mandatory = $False)]
         [ValidateSet("4K", "8K", "16K" , "32K", "64K", "128K")]
-        [String]$BlokSize = "4K",
+        [String]$BlockSize = "4K",
 
         [Parameter (Mandatory = $False)]
         [String]$Comment
@@ -94,7 +94,7 @@ function New-TrueNasZvol
         {
             $Zvolc | add-member -name "comments" -membertype NoteProperty -Value $Comment
         }
-        if ( $PsBoundParameters.ContainsKey('BlokSize') )
+        if ( $PsBoundParameters.ContainsKey('BlockSize') )
         {
             $Zvolc | add-member -name "volblocksize" -membertype NoteProperty -Value $BlokSize
         }

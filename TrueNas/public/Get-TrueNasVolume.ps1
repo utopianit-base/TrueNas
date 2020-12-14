@@ -39,11 +39,11 @@ function Get-TrueNasVolume
             $temp | Add-Member -MemberType NoteProperty -Name "Deduplication" -Value "$($result.deduplication.value)"
             $temp | Add-Member -MemberType NoteProperty -Name "Sync" -Value "$($result.sync.value)"
             $temp | Add-Member -MemberType NoteProperty -Name "Compression" -Value "$($result.compression.value)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Compression ratio" -Value "$($result.compressratio.value)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Ref reservation" -Value "$($result.refreservation.value)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Readonly" -Value "$($result.readonly.value)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Volume size" -Value "$($result.volsize.value)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Volume block size" -Value "$($result.volblocksize.value)"
+            $temp | Add-Member -MemberType NoteProperty -Name "CompressionRatio" -Value "$($result.compressratio.value)"
+            $temp | Add-Member -MemberType NoteProperty -Name "RefReservation" -Value "$($result.refreservation.value)"
+            $temp | Add-Member -MemberType NoteProperty -Name "ReadOnly" -Value "$($result.readonly.value)"
+            $temp | Add-Member -MemberType NoteProperty -Name "VolumeSize" -Value "$($result.volsize.value)"
+            $temp | Add-Member -MemberType NoteProperty -Name "VolumeBlockSize" -Value "$($result.volblocksize.value)"
             $TruenasVolume.Add($temp) | Out-Null
 
         }
@@ -59,11 +59,11 @@ function Get-TrueNasVolume
                 $temp | Add-Member -MemberType NoteProperty -Name "Deduplication" -Value "$($result[$i].deduplication.value)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Sync" -Value "$($result[$i].sync.value)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Compression" -Value "$($result[$i].compression.value)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Compression ratio" -Value "$($result[$i].compressratio.value)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Ref reservation" -Value "$($result[$i].refreservation.value)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Readonly" -Value "$($result[$i].readonly.value)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Volume size" -Value "$($result[$i].volsize.value)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Volume block size" -Value "$($result[$i].volblocksize.value)"
+                $temp | Add-Member -MemberType NoteProperty -Name "Compression Rtio" -Value "$($result[$i].compressratio.value)"
+                $temp | Add-Member -MemberType NoteProperty -Name "RefReservation" -Value "$($result[$i].refreservation.value)"
+                $temp | Add-Member -MemberType NoteProperty -Name "ReadOnly" -Value "$($result[$i].readonly.value)"
+                $temp | Add-Member -MemberType NoteProperty -Name "VolumeSize" -Value "$($result[$i].volsize.value)"
+                $temp | Add-Member -MemberType NoteProperty -Name "VolumeBlockSize" -Value "$($result[$i].volblocksize.value)"
                 $TruenasVolume.Add($temp) | Out-Null
             }
 

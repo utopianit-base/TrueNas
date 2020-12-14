@@ -12,7 +12,7 @@ function New-TrueNasIscsiExtent
 
         [Parameter (Mandatory = $true)]
         [ValidateSet("DISK", "Zvol", "File")]
-        [String]$ExtenType,
+        [String]$ExtentType,
 
         [Parameter (Mandatory = $false)]
         [String]$TrueNasPoolName,
@@ -29,7 +29,7 @@ function New-TrueNasIscsiExtent
         [string]$ExtendComment,
 
         [Parameter (Mandatory = $false)]
-        [String]$ExtenDiskPath
+        [String]$ExtentDiskPath
 
     )
 

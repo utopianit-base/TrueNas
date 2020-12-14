@@ -1,4 +1,4 @@
-function Get-TrueNasIscsiAssociat2Extent
+function Get-TrueNasIscsiAssociate2Extent
 {
     [CmdletBinding()]
     [Alias()]
@@ -25,31 +25,31 @@ function Get-TrueNasIscsiAssociat2Extent
         {
             'Id'
             {
-                $TruenasIscsiAssociat2Extent = New-Object -TypeName System.Collections.ArrayList
+                $TruenasIscsiAssociate2Extent = New-Object -TypeName System.Collections.ArrayList
                 if ($null -eq $result.count)
                 {
                     $temp = New-Object -TypeName System.Object
                     $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result.id)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi Extent Id" -Value "$($result.extent)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi Lun Id" -Value "$($result.lunid)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi Target Id" -Value "$($result.target)"
-                    $TruenasIscsiAssociat2Extent.Add($temp) | Out-Null
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSIExtentID" -Value "$($result.extent)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSILUNID" -Value "$($result.lunid)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSITargetID" -Value "$($result.target)"
+                    $TruenasIscsiAssociate2Extent.Add($temp) | Out-Null
                 }
 
                 for ($i = 0; $i -lt $result.Count; $i++)
                 {
                     $temp = New-Object -TypeName System.Object
                     $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result[$i].id)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi Extent Id" -Value "$($result[$i].extent)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi Lun Id" -Value "$($result[$i].lunid)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi Target Id" -Value "$($result[$i].target)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSIExtentID" -Value "$($result[$i].extent)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSILUNID" -Value "$($result[$i].lunid)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSITargetID" -Value "$($result[$i].target)"
 
-                    $TruenasIscsiAssociat2Extent.Add($temp) | Out-Null
+                    $TruenasIscsiAssociate2Extent.Add($temp) | Out-Null
                 }
             }
             'Name'
             {
-                $TruenasIscsiAssociat2Extent = New-Object -TypeName System.Collections.ArrayList
+                $TruenasIscsiAssociate2Extent = New-Object -TypeName System.Collections.ArrayList
 
                 if ($null -eq $result.Count)
                 {
@@ -62,7 +62,7 @@ function Get-TrueNasIscsiAssociat2Extent
                     {
                         if ( $Item.Id -eq $value2 )
                         {
-                            $TargetNameF = $item.'Target name'
+                            $TargetNameF = $item.TargetName
                         }
 
                     }
@@ -71,16 +71,16 @@ function Get-TrueNasIscsiAssociat2Extent
                     {
                         if ( $Item.Id -eq $value )
                         {
-                            $IscsiExtendF = $item.'Extent Name'
+                            $IscsiExtendF = $item.ExtentName
                         }
                     }
                     $temp = New-Object -TypeName System.Object
-                    $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result.Id)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi_Extent_Name" -Value $IscsiExtendF
-                    $temp | Add-Member -MemberType NoteProperty -Name "LUN Id" -Value "$($result.lunid)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Target_Name" -Value $TargetNameF
+                    $temp | Add-Member -MemberType NoteProperty -Name "ID" -Value "$($result.Id)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSIExtentName" -Value $IscsiExtendF
+                    $temp | Add-Member -MemberType NoteProperty -Name "LUNId" -Value "$($result.lunid)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "TargetName" -Value $TargetNameF
 
-                    $TruenasIscsiAssociat2Extent.Add($temp) | Out-Null
+                    $TruenasIscsiAssociate2Extent.Add($temp) | Out-Null
 
 
                 }
@@ -98,7 +98,7 @@ function Get-TrueNasIscsiAssociat2Extent
                     {
                         if ( $Item.Id -eq $value2 )
                         {
-                            $TargetNameF = $item.'Target name'
+                            $TargetNameF = $item.TargetName
                         }
 
                     }
@@ -107,25 +107,25 @@ function Get-TrueNasIscsiAssociat2Extent
                     {
                         if ( $Item.Id -eq $value )
                         {
-                            $IscsiExtendF = $item.'Extent Name'
+                            $IscsiExtendF = $item.ExtentName
                         }
                     }
 
 
                     $temp = New-Object -TypeName System.Object
                     $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result[$i].Id)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Iscsi_Extent_Name" -Value $IscsiExtendF
-                    $temp | Add-Member -MemberType NoteProperty -Name "LUN Id" -Value "$($result[$i].lunid)"
-                    $temp | Add-Member -MemberType NoteProperty -Name "Target_Name" -Value $TargetNameF
+                    $temp | Add-Member -MemberType NoteProperty -Name "iSCSIExtentName" -Value $IscsiExtendF
+                    $temp | Add-Member -MemberType NoteProperty -Name "LUNId" -Value "$($result[$i].lunid)"
+                    $temp | Add-Member -MemberType NoteProperty -Name "TargetName" -Value $TargetNameF
 
-                    $TruenasIscsiAssociat2Extent.Add($temp) | Out-Null
+                    $TruenasIscsiAssociate2Extent.Add($temp) | Out-Null
                 }
 
             }
 
         }
 
-        return $TruenasIscsiAssociat2Extent
+        return $TruenasIscsiAssociate2Extent
     }
     End
     { }

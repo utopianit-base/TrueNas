@@ -11,9 +11,9 @@ function Show-TrueNasException()
         $exceptiontype = $Exception.Exception.InnerException.GetType()
         if ("AuthenticationException" -eq $exceptiontype.name)
         {
-            Write-Warning "Invalid certificat (Untrusted, wrong date, invalid name...)"
-            Write-Warning "Try to use Connect-TrueNasServer -SkipCertificateCheck for connection"
-            throw "Unable to connect (certificate)"
+            Write-Warning "Invalid certificate (Untrusted, wrong date, invalid name...)"
+            Write-Warning "Try to use 'Connect-TrueNasServer -SkipCertificateCheck' to connect"
+            throw "Unable to connect (Certificate issue)"
         }
     }
 
@@ -27,22 +27,22 @@ function Show-TrueNasException()
             $responseJson = $responseBody | ConvertFrom-Json
         }
 
-        Write-Warning "The TrueNas  API sends an error message:"
-        Write-Warning "Error description (code): $($Exception.Exception.Response.StatusDescription) ($($Exception.Exception.Response.StatusCode.Value__))"
+        Write-Warning "The TrueNAS API sent an error message:"
+        Write-Warning "Error Description (code): $($Exception.Exception.Response.StatusDescription) ($($Exception.Exception.Response.StatusCode.Value__))"
         if ($responseBody)
         {
             if ($responseJson.message)
             {
-                Write-Warning "Error details: $($responseJson.message)"
+                Write-Warning "Error Details: $($responseJson.message)"
             }
             else
             {
-                Write-Warning "Error details: $($responseBody)"
+                Write-Warning "Error Details: $($responseBody)"
             }
         }
         elseif ($Exception.ErrorDetails.Message)
         {
-            Write-Warning "Error details: $($Exception.ErrorDetails.Message)"
+            Write-Warning "Error Details: $($Exception.ErrorDetails.Message)"
         }
     }
 }

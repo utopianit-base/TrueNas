@@ -20,10 +20,10 @@ function Get-TrueNasIscsiConf
 
         $temp = New-Object -TypeName PSObject
         $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value $result.id
-        $temp | Add-Member -MemberType NoteProperty -Name "Base Name" -Value $result.basename
-        $temp | Add-Member -MemberType NoteProperty -Name "ISNS Server" -Value $result.isns_servers
-        $temp | Add-Member -MemberType NoteProperty -Name "Pool available space Threshold (%)" -Value $result.pool_avail_threshold
-        $temp | Add-Member -MemberType NoteProperty -Name "Alua" -Value $result.alua
+        $temp | Add-Member -MemberType NoteProperty -Name "BaseName" -Value $result.basename
+        $temp | Add-Member -MemberType NoteProperty -Name "ISNSServer" -Value $result.isns_servers
+        $temp | Add-Member -MemberType NoteProperty -Name "PoolAvailableSpaceThresholdPercent" -Value $result.pool_avail_threshold
+        $temp | Add-Member -MemberType NoteProperty -Name "ALUA" -Value $result.alua
 
 
         $IscsiConf.Add($temp) | Out-Null

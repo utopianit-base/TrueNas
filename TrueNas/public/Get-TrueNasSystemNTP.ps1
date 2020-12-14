@@ -20,10 +20,10 @@ function Get-TrueNasSystemNTP
                 Id      = ($NTP.id)
                 Address = ($NTP.address)
                 Burst   = ($NTP.burst)
-                iburst  = ($NTP.iburst)
-                prefer  = ($NTP.prefer)
-                Minpoll = ($NTP.minpoll)
-                Maxpoll = ($NTP.maxpoll)
+                IBurst  = ($NTP.iburst)
+                Prefer  = ($NTP.prefer)
+                MinPoll = ($NTP.minpoll)
+                MaxPoll = ($NTP.maxpoll)
             }
         }
 

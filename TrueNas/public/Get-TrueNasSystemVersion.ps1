@@ -9,20 +9,20 @@ function Get-TrueNasSystemVersion
 
     [PSCustomObject]@{
         Version               = ($results.version)
-        'Build time'          = ($results.buildtime)
-        'Physical Memory'     = ($results.physmem)
+        'BuildTime'           = ($results.buildtime)
+        'PhysicalMemory'      = ($results.physmem)
         Model                 = ($results.model)
         Cores                 = ($results.cores)
-        'Load Average'        = ($results.loadavg)
+        'LoadAverage'         = ($results.loadavg)
         Uptime                = ($results.uptime)
-        'Uptime seconds'      = ($results.uptime_seconds)
-        'System serial'       = ($results.system_serial)
-        'System product'      = ($results.system_product)
+        'UptimeSeconds'       = ($results.uptime_seconds)
+        'SystemSerial'        = ($results.system_serial)
+        'SystemProduct'       = ($results.system_product)
         license               = ($results.license)
-        'boot time'           = ($results.boottime)
-        'Date time'           = ($results.datetime)
-        Timezone              = ($results.timezone)
-        'System manufacturer' = ($results.system_manufacturer)
+        'BootTime'            = ($results.boottime)
+        'Datetime'            = ($results.datetime)
+        TimeZone              = ($results.timezone)
+        'SystemManufacturer'  = ($results.system_manufacturer)
 
     }
 

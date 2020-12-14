@@ -21,7 +21,7 @@ function Get-TrueNasIscsiInitiator
             $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value $result.id
             $temp | Add-Member -MemberType NoteProperty -Name "Tag" -Value $result.tag
             $temp | Add-Member -MemberType NoteProperty -Name "Initiator" -Value $result.initiators
-            $temp | Add-Member -MemberType NoteProperty -Name "Auth Network" -Value $result.auth_network
+            $temp | Add-Member -MemberType NoteProperty -Name "AuthNetwork" -Value $result.auth_network
             $temp | Add-Member -MemberType NoteProperty -Name "Comments" -Value $result.comment
             $initiator.Add($temp) | Out-Null
 
@@ -34,7 +34,7 @@ function Get-TrueNasIscsiInitiator
                 $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result[$i].id)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Tag" -Value "$($result[$i].tag)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Initiator" -Value "$($result[$i].initiators)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Auth Network" -Value "$($result[$i].auth_network)"
+                $temp | Add-Member -MemberType NoteProperty -Name "AuthNetwork" -Value "$($result[$i].auth_network)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Comments" -Value "$($result[$i].comment)"
                 $initiator.Add($temp) | Out-Null
             }

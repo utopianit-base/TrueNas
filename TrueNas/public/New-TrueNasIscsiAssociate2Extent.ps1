@@ -1,4 +1,4 @@
-function New-TrueNasIscsiAssociat2Extent
+function New-TrueNasIscsiAssociate2Extent
 {
 
     [CmdletBinding()]
@@ -39,3 +39,5 @@ function New-TrueNasIscsiAssociat2Extent
     End
     { }
 }
+
+New-Alias -Name New-TrueNasIscsiAssociate2Extent -Value New-TrueNasIscsiAssociat2Extent

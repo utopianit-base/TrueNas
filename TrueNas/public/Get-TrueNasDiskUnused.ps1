@@ -1,4 +1,4 @@
-function Get-TrueNasDiskUnsed
+function Get-TrueNasDiskUnused
 {
     [CmdletBinding()]
     Param( )
@@ -27,3 +27,5 @@ function Get-TrueNasDiskUnsed
     }
     end { }
 }
+
+New-Alias -Name Get-TrueNasDiskUnsed -Value Get-TrueNasDiskUnused

@@ -245,7 +245,7 @@ function New-TrueNasPool
         }
         else
         {
-            Write-Warning -Message "The opperation finish with some error"
+            Write-Warning -Message "The operation finished with an error"
             Get-TrueNasJob -Id $response
         }
 

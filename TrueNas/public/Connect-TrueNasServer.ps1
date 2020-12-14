@@ -5,9 +5,9 @@ function Connect-TrueNasServer
     [OutputType([String])]
     Param
     (
-        # Description d’aide Truenas
+        # Description of TrueNAS Server
         [Parameter(Mandatory = $true)]
-        [Alias("Truenas")]
+        [Alias("TrueNAS")]
         $Server,
         [Parameter(Mandatory = $false)]
         [String]$Username,
@@ -20,6 +20,8 @@ function Connect-TrueNasServer
         [Parameter(Mandatory = $false)]
         [switch]$SkipCertificateCheck = $false,
         [Parameter(Mandatory = $false)]
+        [switch]$Force = $false,                # Force reconnection even if existing session is found (Default = NO/$False)
+        [Parameter(Mandatory = $false)]
         [ValidateRange(1, 65535)]
         [int]$port
     )
@@ -29,14 +31,28 @@ function Connect-TrueNasServer
     }
     Process
     {
-        $Script:SrvFreenas = $Server
+        if($Script:TrueNASSession -and $Script:TrueNASServer -and $Script:TrueNASSpecs -and -not $Force) {
+            $result = $Script:TrueNASSpecs
+            Write-Host "Already connected to $($result.hostname) - $($result.version)" -ForegroundColor Green
+            Write-Host " - Hardware : " -NoNewLine -ForegroundColor Cyan
+            Write-Host "$($result.system_manufacturer) $($result.system_product)" -ForegroundColor Gray
+            Write-Host " - Uptime   : " -NoNewLine -ForegroundColor Cyan
+            Write-Host "$($result.uptime)" -ForegroundColor Gray
+            Write-Host " - CPU      : " -NoNewLine -ForegroundColor Cyan
+            Write-Host "$($result.model) ($($result.cores) cores)" -ForegroundColor Gray
+            Write-Host " - Memory   : " -NoNewLine -ForegroundColor Cyan
+            Write-Host "$([math]::Ceiling([long]$result.physmem/1024/1024/1024)) GB" -ForegroundColor Gray
+            Return
+        }
 
+        $Script:TrueNASServer = $Server
 
         #If there is a password (and a user), create a credentials
         if ($Password)
         {
             $Credentials = New-Object -TypeName System.Management.Automation.PSCredential($Username, $securecurepassword)
         }
+
         #Not Credentials (and no password)
         if ($NULL -eq $Credentials)
         {
@@ -78,10 +94,10 @@ function Connect-TrueNasServer
                 Set-TrueNasCipherSSL
                 if ($SkipCertificateCheck)
                 {
-                    Write-Verbose -Message "Disable SSL chain trust"
+                    Write-Verbose -Message "Disable SSL Chain Trust Check"
 
                     #Disable SSL chain trust...
-                    Set-TrueNasuntrustedSSL
+                    Set-TrueNasUntrustedSSL
                 }
 
             }
@@ -108,10 +124,18 @@ function Connect-TrueNasServer
             throw "Unable to get data"
         }
 
-        Write-Host "Welcome on"$result.name"-"$result.version"-"$result.system_product""
-
-        $Script:Session = $Truenas_S
-
+        Write-Host "Connected to $($result.hostname) - $($result.version)" -ForegroundColor Green
+        Write-Host " - Hardware : " -NoNewLine -ForegroundColor Cyan
+        Write-Host "$($result.system_manufacturer) $($result.system_product)" -ForegroundColor Gray
+        Write-Host " - Uptime   : " -NoNewLine -ForegroundColor Cyan
+        Write-Host "$($result.uptime)" -ForegroundColor Gray
+        Write-Host " - CPU      : " -NoNewLine -ForegroundColor Cyan
+        Write-Host "$($result.model) ($($result.cores) cores)" -ForegroundColor Gray
+        Write-Host " - Memory   : " -NoNewLine -ForegroundColor Cyan
+        Write-Host "$([math]::Ceiling([long]$result.physmem/1024/1024/1024)) GB" -ForegroundColor Gray
+        
+        $Script:TrueNASSpecs   = $result
+        $Script:TrueNASSession = $Truenas_S
 
     }
     End

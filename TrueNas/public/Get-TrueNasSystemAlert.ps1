@@ -15,7 +15,7 @@ function Get-TrueNasSystemAlert
             Attributes   = ($Alert.attributes)
             Level        = ($Alert.level)
             Enabled      = ($Alert.enabled)
-            'Type title' = ($Alert.type__title)
+            TypeTitle    = ($Alert.type__title)
         }
     }
 }

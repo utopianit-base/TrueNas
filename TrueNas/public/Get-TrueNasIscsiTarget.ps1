@@ -20,13 +20,13 @@ function Get-TrueNasIscsiTarget
 
             $temp = New-Object -TypeName System.Object
             $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result.id)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Target alias" -Value "$($result.alias)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Target name" -Value "$($result.name)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Target mode" -Value "$($result.mode)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Groups portal" -Value "$($result.groups.portal)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Groups initiator" -Value "$($result.groups.initiator)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Groups authentification" -Value "$($result.groups.auth)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Groups authen-method" -Value "$($result.groups.authmethod)"
+            $temp | Add-Member -MemberType NoteProperty -Name "TargetAlias" -Value "$($result.alias)"
+            $temp | Add-Member -MemberType NoteProperty -Name "TargetName" -Value "$($result.name)"
+            $temp | Add-Member -MemberType NoteProperty -Name "TargetMode" -Value "$($result.mode)"
+            $temp | Add-Member -MemberType NoteProperty -Name "GroupsPortal" -Value "$($result.groups.portal)"
+            $temp | Add-Member -MemberType NoteProperty -Name "GroupsInitiator" -Value "$($result.groups.initiator)"
+            $temp | Add-Member -MemberType NoteProperty -Name "GroupsAuth" -Value "$($result.groups.auth)"
+            $temp | Add-Member -MemberType NoteProperty -Name "GroupsAuthMethod" -Value "$($result.groups.authmethod)"
             $TruenasIscsiTarget.Add($temp) | Out-Null
         }
         else
@@ -35,13 +35,13 @@ function Get-TrueNasIscsiTarget
             {
                 $temp = New-Object -TypeName System.Object
                 $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result[$i].id)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Target alias" -Value "$($result[$i].alias)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Target name" -Value "$($result[$i].name)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Target mode" -Value "$($result[$i].mode)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Groups portal" -Value "$($result[$i].groups.portal)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Groups initiator" -Value "$($result[$i].groups.initiator)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Groups authentification" -Value "$($result[$i].groups.auth)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Groups authen-method" -Value "$($result[$i].groups.authmethod)"
+                $temp | Add-Member -MemberType NoteProperty -Name "TargetAlias" -Value "$($result[$i].alias)"
+                $temp | Add-Member -MemberType NoteProperty -Name "TargetName" -Value "$($result[$i].name)"
+                $temp | Add-Member -MemberType NoteProperty -Name "TargetMode" -Value "$($result[$i].mode)"
+                $temp | Add-Member -MemberType NoteProperty -Name "GroupsPortal" -Value "$($result[$i].groups.portal)"
+                $temp | Add-Member -MemberType NoteProperty -Name "GroupsInitiator" -Value "$($result[$i].groups.initiator)"
+                $temp | Add-Member -MemberType NoteProperty -Name "GroupsAuth" -Value "$($result[$i].groups.auth)"
+                $temp | Add-Member -MemberType NoteProperty -Name "GroupsAuthMethod" -Value "$($result[$i].groups.authmethod)"
 
                 $TruenasIscsiTarget.Add($temp) | Out-Null
             }

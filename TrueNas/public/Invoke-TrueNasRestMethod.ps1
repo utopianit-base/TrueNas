@@ -32,13 +32,13 @@ function Invoke-TrueNasRestMethod
     Process
     {
 
-        if ($null -eq $Script:SrvFreenas)
+        if ($null -eq $Script:TrueNASServer)
         {
             Throw "Not Connected. Connect to the TrueNas with Connect-TrueNasServer"
         }
 
-        $Server = $Script:SrvFreenas
-        $sessionvariable = $Script:Session
+        $Server = $Script:TrueNASServer
+        $sessionvariable = $Script:TrueNASSession
         $headers = $Script:Headers
         $invokeParams = $Script:invokeParams
         $httpOnly = $Script:httpOnly

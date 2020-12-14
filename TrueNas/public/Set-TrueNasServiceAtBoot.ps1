@@ -10,7 +10,7 @@ function Set-TrueNasServiceAtBoot
 
     Process
     {
-        $Uri = "api/v2.0/service/id/$PidService "
+        $Uri = "api/v2.0/service/id/$PidService"
         $Obj = [Ordered]@{
 
             enable = $Enable

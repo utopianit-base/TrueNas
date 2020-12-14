@@ -22,14 +22,14 @@ function Get-TrueNasPlugin
         {
             $IXSYSTEMS = New-Object -TypeName PSObject
             $IXSYSTEMS | Add-Member -MemberType NoteProperty -Name "Name" -Value $item.name
-            $IXSYSTEMS | Add-Member -MemberType NoteProperty -Name "Git repository" -Value $item.git_repository
+            $IXSYSTEMS | Add-Member -MemberType NoteProperty -Name "GitRepository" -Value $item.git_repository
         }
 
         foreach ($item in $result.COMMUNITY)
         {
             $COMMUNITY = New-Object -TypeName PSObject
             $COMMUNITY | Add-Member -MemberType NoteProperty -Name "Name" -Value $item.name
-            $COMMUNITY | Add-Member -MemberType NoteProperty -Name "Git repository" -Value $item.git_repository
+            $COMMUNITY | Add-Member -MemberType NoteProperty -Name "GitRepository" -Value $item.git_repository
         }
 
     }

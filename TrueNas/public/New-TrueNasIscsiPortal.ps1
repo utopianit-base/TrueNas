@@ -9,7 +9,7 @@ function New-TrueNasIscsiPortal
         $IpPortal,
 
         [Parameter (Mandatory = $false)]
-        [string]$Port = 3260 ,
+        [string]$Port = 3260,
 
         [Parameter (Mandatory = $false)]
         [string]$Comment

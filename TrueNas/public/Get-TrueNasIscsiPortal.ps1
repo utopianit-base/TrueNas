@@ -23,8 +23,8 @@ function Get-TrueNasIscsiPortal
             $temp | Add-Member -MemberType NoteProperty -Name "Tag" -Value $result.tag
             $temp | Add-Member -MemberType NoteProperty -Name "Listen" -Value $result.listen.ip
             $temp | Add-Member -MemberType NoteProperty -Name "Port" -Value $result.listen.port
-            $temp | Add-Member -MemberType NoteProperty -Name "Discovery authmethod" -Value $result.discovery_authmethod
-            $temp | Add-Member -MemberType NoteProperty -Name "Discovery authgroup" -Value $result.discovery_authgroup
+            $temp | Add-Member -MemberType NoteProperty -Name "DiscoveryAuthMethod" -Value $result.discovery_authmethod
+            $temp | Add-Member -MemberType NoteProperty -Name "DiscoveryAuthGroup" -Value $result.discovery_authgroup
             $Obj.Add($temp) | Out-Null
 
         }
@@ -37,8 +37,8 @@ function Get-TrueNasIscsiPortal
                 $temp | Add-Member -MemberType NoteProperty -Name "Tag" -Value "$($result[$i].tag)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Listen" -Value "$($result[$i].listen.ip)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Port" -Value "$($result[$i].listen.port)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Discovery authmethod" -Value "$($result[$i].discovery_authmethod)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Discovery authgroup" -Value "$($result[$i].discovery_authgroup)"
+                $temp | Add-Member -MemberType NoteProperty -Name "DiscoveryAuthMethod" -Value "$($result[$i].discovery_authmethod)"
+                $temp | Add-Member -MemberType NoteProperty -Name "DiscoveryAuthGroup" -Value "$($result[$i].discovery_authgroup)"
                 $Obj.Add($temp) | Out-Null
             }
 

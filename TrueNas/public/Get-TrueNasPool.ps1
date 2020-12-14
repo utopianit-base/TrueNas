@@ -25,11 +25,11 @@ function Get-TrueNasPool
             $temp | Add-Member -MemberType NoteProperty -Name "Id" -Value "$($result.id)"
             $temp | Add-Member -MemberType NoteProperty -Name "Guid" -Value "$($result.guid)"
             $temp | Add-Member -MemberType NoteProperty -Name "Encrypt" -Value "$($result.encrypt)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Encrypt key" -Value "$($result.encryptkey)"
+            $temp | Add-Member -MemberType NoteProperty -Name "EncryptKey" -Value "$($result.encryptkey)"
             $temp | Add-Member -MemberType NoteProperty -Name "Path" -Value "$($result.path)"
             $temp | Add-Member -MemberType NoteProperty -Name "Status" -Value "$($result.status)"
             $temp | Add-Member -MemberType NoteProperty -Name "Healthy" -Value "$($result.healthy)"
-            $temp | Add-Member -MemberType NoteProperty -Name "Is decrypted" -Value "$($result.is_decrypted)"
+            $temp | Add-Member -MemberType NoteProperty -Name "isDecrypted" -Value "$($result.is_decrypted)"
             #$result.topology.data.children Topology
             $TruenasVolume.Add($temp) | Out-Null
 
@@ -47,7 +47,7 @@ function Get-TrueNasPool
                 $temp | Add-Member -MemberType NoteProperty -Name "Path" -Value "$($result[$i].path)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Status" -Value "$($result[$i].status)"
                 $temp | Add-Member -MemberType NoteProperty -Name "Healthy" -Value "$($result[$i].healthy)"
-                $temp | Add-Member -MemberType NoteProperty -Name "Is decrypted" -Value "$($result[$i].is_decrypted)"
+                $temp | Add-Member -MemberType NoteProperty -Name "isDecrypted" -Value "$($result[$i].is_decrypted)"
                 $TruenasVolume.Add($temp) | Out-Null
             }
 
